@@ -20,7 +20,7 @@ public class Lab4P1_ByronLemuz {
         int elbicho;
 
         
-        while (opcion!= 4) {
+        while (opcion != 4) {
             System.out.println("------------Menú de Ejercicios\n -------------");
             System.out.println("1. Intercambio ");
             System.out.println("2. Cifrado cesar ");
@@ -34,7 +34,7 @@ public class Lab4P1_ByronLemuz {
              
                     while (continuar ==1) {
                         System.out.println("Ingrese el string:  ");
-                        String enter=elbicho.nextline();
+                        String enter=lea.nextline();
                         System.out.println("Ingrese la frecuencia de intercmabio:  ");
                         int b = lea.nextInt();
                         String output = intercambiar(enter, b);
@@ -48,29 +48,31 @@ public class Lab4P1_ByronLemuz {
                     break;
 
                 case 2:
-                    System.out.println(" Ingrese N: ");
-                    String imput=elbicho.nextLine();
-                    int[]digtos =new int (imput.length());
-                    for (int i = 0; i < imput.length(); i++) {
-                        digitos[i]= Character.getnumericValue(imput.charAt(i));
-                       
-                    }
-                    int solito = -1;
-                    int soledadmin = Integer.MAX_VALUE;
-                    for (int i = 0; i < digitos.lenght; i++) {
-                      int soledad=0;
-                        for (int j = i-digitos[i]; j <=i + digitos[i]; j++) {
-                            if (j >= 0 && j <digitos.lenght && j != i) {
-                                soledad += digitos[j];
-                                
-                            }
-                        
-                         if (Solito < soledadmin) {
-                             Soledadmin 0 soledad;
-                             solitario = digitos[i];
-                            
-                        }
-   
+                    
+        System.out.print("Ingrese N: ");
+        String n = lea.next();
+        int solitario = 0;
+        int soledad = Integer.MAX_VALUE;
+        for (int i = 0; i < n.length(); i++) {
+            int suma = 0;
+            int digito = n.charAt(i) - '0';
+            for (int j = 1; j <= digito; j++) {
+                if (i - j >= 0) {
+                    suma += n.charAt(i - j) - '0';
+                }
+                if (i + j < n.length()) {
+                    suma += n.charAt(i + j) - '0';
+                }
+            }
+            if (suma < soledad) {
+                solitario = digito;
+                soledad = suma;
+            }
+        }
+        System.out.println("El número más solitario es el " + solitario + " porque su nivel de soledad es " + soledad);
+            }
+
+
                       
                          
                     break;
@@ -83,21 +85,22 @@ public class Lab4P1_ByronLemuz {
                 default:
                     System.out.println("Opción inválida, intente nuevamente.");
                     break;
-            }}}}}
+            }
+
             public static String intercambiar(String enter, int b) {
-            for (int i = 0; i < input.length(); i += n) {
-            int fin = Math.min(i + n, input.length());
-            String sub = input.substring(i, end);
-            if (sub.length() == n) {
-               x.append(new StringBuilder(sub).reverse());
+            for (int i = 0; i < enter.length(); i += b) {
+            int fin = Math.min(i + b, enter.length());
+            String sub = enter.substring(i, fin);
+            if (sub.length() == b) {
+               b.append(new StringBuilder(sub).reverse());
             } else {
-                x.append(sub);
+                b.append(sub);
             }
         
-        return x.toString();
+        return b.toString();
         
         }
-                
+                  
             
         
         
